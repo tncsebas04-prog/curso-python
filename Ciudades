@@ -1,0 +1,5 @@
+ciudades = ["villavicencio","lima","cali"]   
+print ("Las ciudades que tenemos son: ", ciudades)
+print(ciudades[len(ciudades) - 3])
+print(ciudades[len(ciudades) - 2])
+print(ciudades[len(ciudades) - 1])

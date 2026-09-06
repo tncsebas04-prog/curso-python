@@ -1,0 +1,55 @@
+#  Agenda de contactos
+def agregar_contacto(nombre, telefono):
+    agenda[nombre] = telefono
+
+def mostrar_contactos():
+    for nombre, telefono in agenda.items():
+        print(f"Contacto: {nombre} - {telefono}")
+
+def buscar_contacto(nombre):
+    if nombre in agenda:
+        return agenda[nombre]
+    else:
+        return "Contacto no encontrado."
+
+ #  Herramienta de agenda de contactos
+
+agenda = {}
+try:
+ with open("agenda.txt", "r") as archivo:
+    for linea in archivo:
+        nombre,telefono = linea.strip().split(",")
+        agenda[nombre] = telefono
+except FileNotFoundError:
+    print("No se encontró el archivo agenda.txt. Se creará uno nuevo al guardar los contactos.")
+
+# La función principal del programa
+while True:
+    try:
+        cantidad = int(input("Ingrese la cantidad de contactos que desea agregar: "))
+        if 1 <= cantidad <= 100:
+            break
+        print("Debe estar entre 1 y 100.")
+    except ValueError:
+        print("Por favor, ingrese un número válido.")
+       
+
+for _ in range(cantidad):
+    ingresar = input("Ingrese el nombre del contacto: ")
+    ingresar_telefono = input("Ingrese el teléfono del contacto: ")
+    agregar_contacto(ingresar, ingresar_telefono)
+
+busqueda = input("Ingrese el nombre del contacto que desea buscar: ")
+resultado = buscar_contacto(busqueda)
+if resultado == "Contacto no encontrado.":
+    print("Contacto no encontrado.")
+else:
+    print(f"El teléfono de {busqueda} es: {resultado}")
+
+mostrar_contactos()
+
+with open("agenda.txt", "w") as archivo:
+    for nombre, telefono in agenda.items():
+        archivo.write(f"{nombre},{telefono}\n")
+
+

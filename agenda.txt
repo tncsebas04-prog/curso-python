@@ -1,0 +1,5 @@
+juan,3013218485
+juan nl,68491367
+katherin,30123456
+michel,234556
+C:\Users\katam\AppData\Local\Programs\Python\Python314\python.exe c:/Users/katam/Downloads/BLENDER/programacion/agenda,C:\Users\katam\AppData\Local\Programs\Python\Python314\python.exe c:/Users/katam/Downloads/BLENDER/programacion/agenda

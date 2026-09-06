@@ -1,0 +1,17 @@
+def mostrar_tarea(posicion, tarea):
+    print(f"({posicion + 1}). {tarea}")
+
+lista = []
+tareas = int(input("Ingrese la cantidad de tareas que desea ingresar: "))
+while tareas <= 0 or tareas > 10:
+   print("La cantidad de tareas debe ser mayor a 0 y menor o igual a 10. Por favor, ingresa una cantidad válida.")
+   tareas = int(input("Ingrese la cantidad de tareas que desea ingresar: "))
+
+for i in range(tareas):
+ tarea = input("Ingrese la tarea:")
+ lista.append(tarea)
+
+for posicion in range(len(lista)):
+    mostrar_tarea(posicion, lista[posicion])
+
+print(f"Las tareas que tienes son: {len(lista)}")

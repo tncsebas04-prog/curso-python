@@ -1,0 +1,5 @@
+import requests
+
+respuesta = requests.get("https://api.github.com/users/torvalds")
+print(respuesta.status_code)
+print(respuesta.json()["name"])

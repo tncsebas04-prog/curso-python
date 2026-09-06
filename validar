@@ -1,0 +1,6 @@
+edad = int(input("¿Cuál es tu edad?:"))
+while edad <= 0 or edad >= 120:
+    print("La edad no puede ser negativa ni mayor a 120. Por favor, ingresa una edad válida.")
+    edad = int(input("¿Cuál es tu edad?: "))
+
+print(f"Tu edad es: {edad}")

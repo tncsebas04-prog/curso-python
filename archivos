@@ -1,0 +1,41 @@
+class Contacto:
+    def __init__(self, nombre, telefono):
+        self.nombre = nombre
+        self.telefono = telefono
+
+    def mostrar(self):
+        print(f"{self.nombre} - {self.telefono}")
+    
+    def es_movil(self):
+        if self.telefono.startswith("6"):
+            return True
+        return False
+       
+
+
+while True:
+    try:
+        cantidad = int(input("Ingrese la cantidad de contactos que desea agregar: "))
+        if 1 <= cantidad <= 100:
+            break
+        print("Debe estar entre 1 y 100.")
+    except ValueError:
+        print("Por favor, ingrese un número válido.")
+
+
+
+contactos = []
+for _ in range(cantidad):
+    nombre = input("Ingrese el nombre del contacto: ")
+    telefono = input("Ingrese el teléfono del contacto: ")
+    contacto = Contacto(nombre, telefono)
+    contactos.append(contacto)
+
+    
+
+
+for contacto in contactos:
+    contacto.mostrar()
+    if contacto.es_movil():
+        print("   (móvil)")
+
