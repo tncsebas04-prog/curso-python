@@ -1,3 +1,5 @@
+# Consulta el clima de una ciudad usando OpenWeatherMap.
+
 import requests
 from config import API_KEY
 
@@ -14,3 +16,4 @@ clima = datos["weather"][0]["description"]
 ciudad_confirmada = datos["name"]
 
 print(f"En {ciudad_confirmada} hay {round(temperatura, 1)}°C, sensación de {round(sensacion_termica, 1)}°C, {clima}.")
+print("¡Que tengas un buen día!")
