@@ -20,7 +20,7 @@ def hablar(texto):
 def escuchar():
     with sr.Microphone() as fuente:
         reconocedor.adjust_for_ambient_noise(fuente, duration=1)
-        audio = reconocedor.listen(fuente)
+        audio = reconocedor.listen(fuente, timeout=5)
 
 
         
@@ -33,22 +33,32 @@ def escuchar():
     except sr.RequestError:
         print("Error de conexión.")
         return None
-hablar("hable ahora")
-texto = escuchar()
 
-if texto:
-    if "tiempo" in texto or "clima" in texto:
-        hablar("por favor diga el nombre de su ciudad")
-        ciudad = escuchar()
-        if ciudad:
-            hablar(consultar_clima(ciudad))
+
+
+hablar("hola, ¿en qué puedo ayudarte?")
+
+
+while True:
+    texto = escuchar()
+    if texto:
+        if "tiempo" in texto or "clima" in texto:
+            hablar("por favor diga el nombre de su ciudad")
+            ciudad = escuchar()
+            if ciudad:
+                hablar(consultar_clima(ciudad))
+            else:
+                hablar("no conozco esa ciudad")
+            
+        elif "hola" in texto:
+            hablar("hola como te encuentas el dia de hoy")
+
+    
+        elif "adiós" in texto or "hasta luego" in texto:
+            hablar("hasta luego")
+            break
         else:
-            hablar("no se nada al respecto de esa ciudad")
-
-    elif "hola" in texto:
-        hablar("Hola, ¿en qué te ayudo?")
-    else:
-        hablar("No conozco esa orden.")
+            hablar("No conozco esa orden.")
               
      
 
