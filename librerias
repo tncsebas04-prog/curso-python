@@ -1,5 +1,9 @@
-import requests
+def saludar():
+    return "Hola, ¿qué tal?"
 
-respuesta = requests.get("https://api.github.com/users/torvalds")
-print(respuesta.status_code)
-print(respuesta.json()["name"])
+def despedirse():
+    return "Hasta luego"
+
+comandos = {"hola": saludar, "adiós": despedirse}
+
+print(comandos["hola"])
